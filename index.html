@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FodX – Learn. Build. Share.</title>
+<meta name="description" content="FodX is a tech brand and small product studio: apps built in public, and what I learn along the way.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:title" content="FodX – Learn. Build. Share.">
+<meta property="og:description" content="Small useful apps built in public, plus what I learn about code, AI and tech.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fouad-dev101.github.io/fodx/">
+<meta property="og:image" content="https://fouad-dev101.github.io/fodx/og.png">
+<meta name="theme-color" content="#05070d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#05070d; --surface:#0b1220; --line:#16233b;
+  --text:#e9f0ff; --muted:#8a9bbd; --blue:#2f7bff; --cyan:#36e0ff;
+  --head:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* top bar */
+.bar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font:700 18px var(--head);text-decoration:none;letter-spacing:.02em}
+.brand img{width:34px;height:34px;border-radius:50%;background:#000206}
+.bar nav{display:flex;gap:22px;font-size:15px;color:var(--muted)}
+.bar nav a{text-decoration:none}
+.bar nav a:hover{color:var(--text)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:72px 0 96px}
+h1{font:700 clamp(64px,12vw,148px)/.9 var(--head);letter-spacing:-.04em;margin:0 0 28px;
+   background:linear-gradient(180deg,#fff 30%,#9fc4ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{font:500 clamp(20px,2.6vw,28px)/1.3 var(--head);color:var(--cyan);margin:0 0 18px}
+.lead{max-width:46ch;color:var(--muted);margin:0 0 34px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font:500 16px var(--body);text-decoration:none;border:1px solid var(--line);transition:border-color .2s,background .2s}
+.btn.main{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent;color:#03101f;font-weight:500}
+.btn:hover{border-color:var(--cyan)}
+.btn.main:hover{filter:brightness(1.08)}
+
+.ring{justify-self:center;width:min(380px,76vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+  overflow:hidden;background:#000206;
+  box-shadow:0 0 70px 4px rgba(47,123,255,.35);
+  animation:glow 2.4s ease-out 1}
+.ring img{width:100%;height:100%;display:block}
+@keyframes glow{from{box-shadow:0 0 0 0 rgba(47,123,255,0)}}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(28px,4vw,40px)/1.15 var(--head);letter-spacing:-.02em;margin:0 0 12px}
+.sub{color:var(--muted);max-width:56ch;margin:0 0 40px}
+
+/* products: rows, not cards */
+.prod{display:grid;grid-template-columns:200px 1fr auto;gap:28px;align-items:start;padding:30px 0;border-top:1px solid var(--line)}
+.prod:last-child{border-bottom:1px solid var(--line)}
+.prod h3{font:700 26px/1.1 var(--head);margin:0}
+.prod h3 span{color:var(--cyan)}
+.prod p{margin:0 0 12px;max-width:52ch}
+.facts{color:var(--muted);font-size:15px}
+.btn.sm{padding:9px 20px;font-size:15px;white-space:nowrap}
+.pill{font:500 13px var(--mono);color:var(--cyan);border:1px solid rgba(54,224,255,.4);border-radius:999px;padding:5px 12px;white-space:nowrap}
+
+/* build in public */
+.log{list-style:none;margin:0;padding:0;max-width:640px}
+.log li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.log time{font:500 14px var(--mono);color:var(--muted);padding-top:3px}
+
+/* cta */
+.cta{text-align:left}
+.cta h2{max-width:20ch}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+footer a{text-decoration:none;margin-right:20px}
+footer a:hover{color:var(--text)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding:40px 0 64px}
+  .ring{order:-1;width:200px;justify-self:start}
+  .prod{grid-template-columns:1fr;gap:12px}
+  .log li{grid-template-columns:1fr;gap:2px}
+  .bar nav{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){.ring{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="#top" aria-label="FodX home">
+      <img src="logo.png" alt="" width="34" height="34">
+      FodX
+    </a>
+    <nav aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#building">Building</a>
+      <a href="https://instagram.com/fodxtech" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1>FodX</h1>
+        <p class="tag">Learn. Build. Share.</p>
+        <p class="lead">I build small, useful apps in public and share what I learn about code, AI and the tech world, one post at a time.</p>
+        <div class="btns">
+          <a class="btn main" href="https://fouad-dev101.github.io/fodx-facture/get.html" target="_blank" rel="noopener">Install FODX Facture</a>
+          <a class="btn" href="https://instagram.com/fodxtech" target="_blank" rel="noopener">Follow @fodxtech</a>
+        </div>
+      </div>
+      <div class="ring">
+        <img src="logo.png" alt="FodX logo: a blue and white F above the word FODX inside a glowing ring" width="520" height="520">
+      </div>
+    </div>
+
+    <section id="products">
+      <h2>Products</h2>
+      <p class="sub">Free to start, no ads, made for people in Morocco first.</p>
+
+      <div class="prod">
+        <h3><span>FODX</span> Scanner</h3>
+        <div>
+          <p>Scan documents with your phone camera and export clean PDFs. The edges are detected automatically and the page is straightened for you.</p>
+          <div class="facts">Android and iOS · English, French, Arabic · No account needed</div>
+        </div>
+        <span class="pill">In development</span>
+      </div>
+
+      <div class="prod">
+        <h3><span>FODX</span> Facture</h3>
+        <div>
+          <p>Make quotes and invoices in MAD, in French, and export them as a clean PDF. Your clients and past documents stay saved.</p>
+          <div class="facts">For freelancers, artisans and contractors</div>
+        </div>
+        <a class="btn main sm" href="https://fouad-dev101.github.io/fodx-facture/get.html" target="_blank" rel="noopener">Install</a>
+      </div>
+    </section>
+
+    <section id="building">
+      <h2>Building in public</h2>
+      <p class="sub">What’s happening behind FodX right now. New updates land on Instagram first.</p>
+      <ul class="log">
+        <li><time>Nov 2026</time><span>FODX Facture is out. You can install it now and make your first quote or invoice.</span></li>
+        <li><time>Nov 2026</time><span>FODX Scanner: setting up real document edge detection and PDF export.</span></li>
+        <li><time>Oct 2026</time><span>Instagram: first carousels on how apps work, from pressing Enter on a URL to the three parts of every app.</span></li>
+      </ul>
+    </section>
+
+    <section class="cta">
+      <h2>Want early access or have an idea?</h2>
+      <p class="sub">Tell me what you’d use. The products get built around the people who reply.</p>
+      <div class="btns">
+        <a class="btn main" href="mailto:contactfodx@gmail.com?subject=FodX">Send a message</a>
+        <a class="btn" href="https://instagram.com/fodxtech" target="_blank" rel="noopener">DM on Instagram</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="https://instagram.com/fodxtech" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://github.com/fouad-dev101" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/fouad-sabbani-b61453306" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div><a href="mailto:contactfodx@gmail.com" style="margin:0 16px 0 0">contactfodx@gmail.com</a>© 2026 FodX. Made in Al Hoceima.</div>
+  </div>
+</footer>
+</body>
+</html>
